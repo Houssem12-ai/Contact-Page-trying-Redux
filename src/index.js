@@ -4,10 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { createStore } from 'redux';//when those modules weren't installed in the src json file that error happened (invalid hook call )
+
+
+import { Provider } from 'react-redux'
+
+import rootReducer from  './reducers/rootreducers';
+
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
